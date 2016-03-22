@@ -1,7 +1,8 @@
 require './sgf'
 require './board'
+require 'open-uri'
 
-sgf = Sgf.new(File.read(ARGV[0]))
+sgf = Sgf.new(open(ARGV[0]).read)
 
 board = Board.new(sgf.board_size)
 
