@@ -23,7 +23,6 @@ class HumanPlayer < Player
       print_board
 
       c = read_char
-      break if c == "q"
       case c
       when "\e[A", "\eOA", "j"
         # Up
@@ -39,6 +38,8 @@ class HumanPlayer < Player
         board.highlight_y = [board.highlight_y + 1, board.size - 1].min
       when "\r"
         return board.highlight_position
+      when "q"
+        exit
       else
         puts "WTF #{c.inspect}"
       end
